@@ -1,16 +1,15 @@
-# Official framework image. Look for the different tagged releases at:
-# https://hub.docker.com/r/library/node/tags/
 image: node:latest
 
 stages:
- - build
+  - build
 
 before_script:
- - yarn install
+  - yarn install
 
 build:
- stage: build
- script:
-  - yarn run build:webpack
- artifacts:
-  - dist/
+  stage: build
+  script:
+    - yarn run build:webpack
+  artifacts:
+    paths:
+      - dist/
