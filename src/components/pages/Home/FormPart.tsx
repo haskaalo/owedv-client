@@ -23,22 +23,23 @@ class FormPart extends React.Component<IProps, IState> {
         super(props);
         this.state = {btag: "", platform: "pc"};
     }
+
     render() {
-        return <form className="formpart col-md-3" onSubmit={this.handleFormSubmit.bind(this)}>
-            <span className="form-title">Find out how much you have left until the next Endorsement level</span>
+        return <form className="formpart col-lg-3 super-center" onSubmit={this.handleFormSubmit.bind(this)}>
+            <h1>OWEDV</h1>
+            <span className="form-title super-center description">Everything about Overwatch endorsements</span>
             {this.props.error === null ? null : <p>{this.props.error.message}</p>}
             <div className="form-group">
-                <label htmlFor="btag">Battle#Tag</label>
-                <input type="text" id="btag" className="form-control" value={this.state.btag} onChange={this.handleBtagChange.bind(this)} />
+                <input type="text" id="btag" className="form-control form-control-lg" value={this.state.btag} onChange={this.handleBtagChange.bind(this)} placeholder="Battletag"/>
             </div>
-            <div className="form-group btn-group btn-group-toggle">
-                <label className="btn btn-secondary active" id="pc">
+            <div className="form-group btn-group btn-group-toggle platform-radio">
+                <label className="btn btn-block btn-secondary active" id="pc">
                     <input type="radio" name="platform" checked={this.state.platform === "pc"} onChange={this.handlePlatformChange.bind(this)} value="pc"/> PC
                 </label>
-                <label className="btn btn-secondary" id="psn">
+                <label className="btn btn-block btn-secondary" id="psn">
                     <input type="radio" name="platform" checked={this.state.platform === "psn"} onChange={this.handlePlatformChange.bind(this)} value="psn"/> PSN
                 </label>
-                <label className="btn btn-secondary" id="xbox">
+                <label className="btn btn-block btn-secondary" id="xbox">
                     <input type="radio" name="platform" checked={this.state.platform === "xbox"} onChange={this.handlePlatformChange.bind(this)} value="xbox"/> Xbox
                 </label>
             </div>

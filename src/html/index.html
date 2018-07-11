@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Overwatch Endorsement Viewer</title>
+    <meta name="tags" content="blizzard, overwatch, overwatch endorsements, Endorsement viewer, Endorsements, Endorsement">
+    <meta name="description" content="{{.Header.Desc}}" />
+    <meta property="og:description" content="{{.Header.Desc}}" />
+    <meta property="twitter:description" content="{{.Header.Desc}}" />
+    <meta property="og:title" content="{{.Header.Title}}" />
+    <meta property="twitter:title" content="{{.Header.Title}}" />
+    <meta name="og:image" content="{{ .Header.Image }}" />
+    <meta name="og:type" content="website" />
+
+    <title>{{ .Header.Title }}</title>
 </head>
 <body>
     <div id="root-app"></div>

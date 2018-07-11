@@ -18,14 +18,13 @@ class EndorsementViewer extends React.Component<IProps> {
 
         return <div className="col-md-9">
             <div className="media">
-                <img className="mr-3 d-none d-lg-block" src={this.props.profile.player.icon} />
                 <div className="media-body">
                     <h4 className="mt-0">
                         <ol className="breadcrumb" data-toggle="tooltip" data-placement="bottom" title="Name / Platform / Level / Total">
                             <li className="breadcrumb-item">
                                 {this.props.profile.player.name}
                             </li>
-                            <li className="breadcrumb-item active">{this.props.profile.player.platform}</li>
+                            <li className="breadcrumb-item active">{this.props.profile.player.platform.toUpperCase()}</li>
                             <li className="breadcrumb-item active">{this.props.profile.level}</li>
                             <li className="breadcrumb-item active">{this.props.profile.total}</li>
                         </ol>

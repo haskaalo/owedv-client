@@ -1,9 +1,26 @@
 @import "~variables";
 
 .formpart {
-    background: $anti-flash-white;
-}
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
 
-.form-title {
-    font-size: 20px;
+    .form-title {
+        font-size: 20px;
+    }
+    
+    .platform-radio {
+        width: 100%;
+    }
+
+    .btn-block {
+        margin-top: 0;
+    }
+
+    .form-group {
+        margin-bottom: 0;
+    }
+    .description {
+        opacity: 0.64;
+    }
 }

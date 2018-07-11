@@ -4,7 +4,7 @@ import EndorsementViewer from "./EndorsementViewer";
 
 class Home extends React.Component {
     render() {
-        return <div className="container-fluid max-height">
+        return <div className="container-fluid max-height max-width">
             <div className="row max-height">
                 <FormPart/>
                 <EndorsementViewer/>

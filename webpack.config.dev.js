@@ -6,13 +6,12 @@ const {HotModuleReplacementPlugin, DefinePlugin} = require('webpack');
 module.exports = merge(common, {
     devtool: 'source-map',
     mode: 'development',
-    output: {
-        filename: "[name].js",
-        publicPath: "http://localhost:8080/built/"
-    },
     devServer: {
         contentBase: "./dist",
-        publicPath: "http://localhost:8080/built/"
+        index: "html/index.html"
+    },
+    output: {
+        publicPath: "http://localhost:8080/"
     },
     module: {
         rules: [

@@ -8,7 +8,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: '[name].[chunkhash].js',
+        filename: 'public/js/[name].[hash].js',
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json', '.css', '.scss'],
@@ -34,7 +34,9 @@ module.exports = {
                 use: [
                     {
                         loader: 'file-loader',
-                        options: {}
+                        options: {
+                            outputPath: "public/img",
+                        }
                     }
                 ]
             }
@@ -45,11 +47,11 @@ module.exports = {
             inject: true,
             chunks: ["main"],
             template: path.join(__dirname, "src/html/index.html"),
-            filename: "index.html"
+            filename: "html/index.html",
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].css",
-            chunkFilename: "[id].css"
+            filename: "public/css/[name].css",
+            chunkFilename: "public/css/[id].css"
         })
     ]
 };

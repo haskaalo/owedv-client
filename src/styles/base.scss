@@ -15,9 +15,22 @@ html {
 
 html, body, #root-app {
     height: 100%;
+    min-width: 100%;
+    width: 100%;
     font-family: 'Roboto', sans-serif;
 }
 
 .max-height {
     height: 100%;
+}
+
+.max-width {
+    min-width: 100%;
+    width: 100%;
+}
+
+.super-center {
+    margin: 0 auto;
+    /*display:flex;
+    justify-content: center;*/
 }
