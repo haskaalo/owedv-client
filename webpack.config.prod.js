@@ -11,7 +11,7 @@ const buildconfig = {
 module.exports = merge(common, {
     mode: 'production',
     output: {
-        publicPath: `${buildconfig.apiUrl}/`
+        publicPath: `/`
     },
     plugins: [
         new DefinePlugin({
