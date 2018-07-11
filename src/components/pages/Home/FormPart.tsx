@@ -47,7 +47,7 @@ class FormPart extends React.Component<IProps, IState> {
             return;
         }
 
-        if (this.props.match !== undefined) {
+        if (this.props.match !== undefined && window.location.pathname !== "/") {
             this.state = {
                 btag: this.props.match.params.battletag,
                 platform: this.props.match.params.platform,
@@ -77,8 +77,13 @@ class FormPart extends React.Component<IProps, IState> {
 
         setInterval(() => { googletag.pubads().refresh([slot1]); }, 60000);
         });
+
         // Submit if latest player exist or is in /v/:...
         if (this.state.btag !== "" && this.state.btag !== undefined) {
+            // Add active class to button
+            const el = document.querySelector(`label#${this.state.platform}`);
+            el.classList.add("active");
+            el.children[0].classList.add("checked");
             this.handleFormSubmit(null);
         }
     }
@@ -92,7 +97,7 @@ class FormPart extends React.Component<IProps, IState> {
                 <input type="text" id="btag" className="form-control form-control-lg" value={this.state.btag} onChange={this.handleBtagChange.bind(this)} placeholder="Battletag" disabled={this.state.disableInput}/>
             </div>
             <div className="form-group btn-group btn-group-toggle platform-radio">
-                <label className="btn btn-block btn-secondary active" id="pc">
+                <label className="btn btn-block btn-secondary" id="pc">
                     <input type="radio" name="platform" checked={this.state.platform === "pc"} onChange={this.handlePlatformChange.bind(this)} value="pc"/> PC
                 </label>
                 <label className="btn btn-block btn-secondary" id="psn">
@@ -130,7 +135,7 @@ class FormPart extends React.Component<IProps, IState> {
             this.props.viewProfile(profile);
 
             // Add profile to last player storage
-            const lastPlayer: ILastPlayer = {battletag: this.state.btag, platform: this.state.platform};
+            const lastPlayer: ILastPlayer = {battletag: this.state.btag.replace("-", "#"), platform: this.state.platform};
             localStorage.setItem("lastPlayer", JSON.stringify(lastPlayer));
 
         }
