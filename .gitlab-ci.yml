@@ -1,0 +1,15 @@
+image: node:latest
+
+stages:
+  - build
+
+before_script:
+  - yarn install
+
+build:
+  stage: build
+  script:
+    - yarn run build:webpack
+  artifacts:
+    paths:
+      - dist/*
