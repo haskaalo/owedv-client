@@ -13,10 +13,16 @@ module.exports = merge(common, {
     mode: 'development',
     devServer: {
         contentBase: "./dist",
-        index: "html/layout.html"
+        index: "html/layout.html",
+        proxy: {
+            "/v/pc/Trev-11289": {
+                target: "http://localhost:8080/html/layout.html",
+                pathRewrite: {'^/v/pc/Trev-11289' : ''}
+            }
+        }
     },
     output: {
-        publicPath: "http://localhost:8080/"
+        publicPath: "http://localhost:8080/",
     },
     module: {
         rules: [

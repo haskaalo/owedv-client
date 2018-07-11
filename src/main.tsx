@@ -6,10 +6,8 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 
 render(
-<BrowserRouter>
-    <Provider store={store}>
-        <App/>
-    </Provider>
-</BrowserRouter>,
+<Provider store={store}>
+    <App/>
+</Provider>,
 document.getElementById("root-app"),
 );

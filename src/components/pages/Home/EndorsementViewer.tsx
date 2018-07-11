@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IProfile, ViewProfile } from "../../../redux/actions/profile";
+import { IProfile } from "../../../redux/actions/profile";
 import { connect } from "react-redux";
 
 export interface IProps {
@@ -16,7 +16,7 @@ class EndorsementViewer extends React.Component<IProps> {
             return null;
         }
 
-        return <div className="col-md-9">
+        return <div className="col-lg-9 super-center">
             <div className="media">
                 <div className="media-body">
                     <h4 className="mt-0">
