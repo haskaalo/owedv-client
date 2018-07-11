@@ -1,7 +1,7 @@
 import { IProfile } from "../redux/actions/profile";
 
 const ViewProfile = async (battletag: string, platform: string): Promise<IProfile> => {
-    const profile = await fetch(`${BUILDCONFIG.apiUrl}/json/${platform}/${battletag.replace("#", "-")}`).catch((err) => {
+    const profile = await fetch(`${BUILDCONFIG.apiUrl}json/${platform}/${battletag.replace("#", "-")}`).catch((err) => {
         throw new Error("A network error happened while requesting");
     });
 
