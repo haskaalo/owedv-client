@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 export interface IState {
     btag: string;
     platform: string;
+    disableInput: boolean;
 }
 
 export interface IProps {
@@ -21,7 +22,7 @@ export interface IProps {
 class FormPart extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
-        this.state = {btag: "", platform: "pc"};
+        this.state = {btag: "", platform: "pc", disableInput: false};
     }
 
     render() {
@@ -30,7 +31,7 @@ class FormPart extends React.Component<IProps, IState> {
             <span className="form-title super-center description">Everything about Overwatch endorsements</span>
             {this.props.error === null ? null : <p>{this.props.error.message}</p>}
             <div className="form-group">
-                <input type="text" id="btag" className="form-control form-control-lg" value={this.state.btag} onChange={this.handleBtagChange.bind(this)} placeholder="Battletag"/>
+                <input type="text" id="btag" className="form-control form-control-lg" value={this.state.btag} onChange={this.handleBtagChange.bind(this)} placeholder="Battletag" disabled={this.state.disableInput}/>
             </div>
             <div className="form-group btn-group btn-group-toggle platform-radio">
                 <label className="btn btn-block btn-secondary active" id="pc">
@@ -51,17 +52,23 @@ class FormPart extends React.Component<IProps, IState> {
         if (this.state.btag === "" || this.state.platform === "") {
             return;
         }
+        this.setState({disableInput: true});
 
         const profile = await ViewProfileRequest(this.state.btag, this.state.platform).catch((err: Error) => {
             // Errors are already filtered, so its safe to display
             this.props.setError({
                 message: err.message,
             });
+            this.setState({disableInput: false});
         });
 
         if (profile) {
+            if (window.history) {
+                window.history.pushState("", "", `/v/${this.state.platform}/${this.state.btag.replace("#", "-")}`);
+            }
             this.props.viewProfile(profile);
         }
+        this.setState({disableInput: false});
     }
 
     private handleBtagChange(event: React.ChangeEvent<HTMLInputElement>) {

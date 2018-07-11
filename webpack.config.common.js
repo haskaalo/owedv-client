@@ -47,7 +47,7 @@ module.exports = {
             inject: true,
             chunks: ["main"],
             template: path.join(__dirname, "src/html/index.html"),
-            filename: "html/index.html",
+            filename: "html/layout.html",
         }),
         new MiniCssExtractPlugin({
             filename: "public/css/[name].css",

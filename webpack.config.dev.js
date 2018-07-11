@@ -13,7 +13,7 @@ module.exports = merge(common, {
     mode: 'development',
     devServer: {
         contentBase: "./dist",
-        index: "html/index.html"
+        index: "html/layout.html"
     },
     output: {
         publicPath: "http://localhost:8080/"
