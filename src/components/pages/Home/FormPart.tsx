@@ -57,7 +57,7 @@ class FormPart extends React.Component<IProps, IState> {
 
     componentDidMount() {
         // Submit if latest player exist or is in /v/:...
-        if (this.state.btag !== "") {
+        if (this.state.btag !== "" && this.state.btag !== undefined) {
             this.handleFormSubmit(null);
         }
     }

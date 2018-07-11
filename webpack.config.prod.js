@@ -4,7 +4,7 @@ const {DefinePlugin} = require('webpack');
 const ManifestPlugin = require("webpack-manifest-plugin");
 
 const buildconfig = {
-    apiUrl: "https://owedv.com",
+    apiUrl: "/",
     isDev: false,
 };
 

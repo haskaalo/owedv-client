@@ -35,7 +35,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            outputPath: "public/img",
+                            outputPath: "static/img",
                         }
                     }
                 ]
