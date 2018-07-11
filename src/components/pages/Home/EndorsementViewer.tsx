@@ -16,11 +16,12 @@ class EndorsementViewer extends React.Component<IProps> {
             return null;
         }
 
-        return <div className="col-lg-9 super-center">
+        return <div className="col-lg-3 col-md-9 super-center">
             <div className="media">
                 <div className="media-body">
                     <h4 className="mt-0">
                         <ol className="breadcrumb" data-toggle="tooltip" data-placement="bottom" title="Name / Platform / Level / Total">
+                        <img className="mr-3 align-self-start" src={this.props.profile.player.icon} alt="Your icon" height="42" width="42"/>
                             <li className="breadcrumb-item">
                                 {this.props.profile.player.name}
                             </li>
