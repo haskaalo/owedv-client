@@ -3,6 +3,11 @@ const common = require('./webpack.config.common.js');
 
 const {HotModuleReplacementPlugin, DefinePlugin} = require('webpack');
 
+const buildconfig = {
+    apiUrl: "http://localhost:1337",
+    isDev: true,
+}
+
 module.exports = merge(common, {
     devtool: 'source-map',
     mode: 'development',
@@ -21,7 +26,7 @@ module.exports = merge(common, {
     plugins: [
         new HotModuleReplacementPlugin(),
         new DefinePlugin({
-            BUILDCONFIG: JSON.stringify(require("./config.dev"))
+            BUILDCONFIG: JSON.stringify(buildconfig)
         })
     ]
 });
