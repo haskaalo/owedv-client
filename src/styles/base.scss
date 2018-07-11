@@ -1,0 +1,23 @@
+@import "./variables.scss";
+
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import "~bootstrap/scss/bootstrap";
+@import "./override.scss";
+
+html {
+    background: url("~assets/images/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+
+    body {
+        background-color: rgba(27,27,27,0.76);
+    }
+}
+
+html, body, #root-app {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.max-height {
+    height: 100%;
+}
