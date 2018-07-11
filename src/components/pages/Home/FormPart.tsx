@@ -118,6 +118,7 @@ class FormPart extends React.Component<IProps, IState> {
         if (this.state.btag === "" || this.state.platform === "") {
             return;
         }
+        this.props.removeError();
         this.setState({disableInput: true});
 
         const profile = await ViewProfileRequest(this.state.btag, this.state.platform).catch((err: Error) => {
