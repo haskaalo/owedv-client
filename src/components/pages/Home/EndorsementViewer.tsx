@@ -1,6 +1,7 @@
 import * as React from "react";
 import { IProfile } from "../../../redux/actions/profile";
 import { connect } from "react-redux";
+import "./endorsementviewer.scss";
 
 export interface IProps {
     profile: IProfile;
@@ -21,7 +22,8 @@ class EndorsementViewer extends React.Component<IProps> {
                 <div className="media-body">
                     <h4 className="mt-0">
                         <ol className="breadcrumb text-center">
-                        <img className="mr-3 align-self-start" src={this.props.profile.player.icon} height="42" width="42"/>
+                        <img className="mr-3 align-self-start player-icon" src={this.props.profile.player.icon} height="42" width="42"/>
+                        <div className="w-100"></div>
                             <li className="breadcrumb-item">
                                 {this.props.profile.player.name}
                             </li>
