@@ -97,7 +97,7 @@ class FormPart extends React.Component<IProps, IState> {
                 <input type="text" id="btag" className="form-control form-control-lg" value={this.state.btag} onChange={this.handleBtagChange.bind(this)} placeholder="Battletag" disabled={this.state.disableInput}/>
             </div>
             <div className="form-group btn-group btn-group-toggle platform-radio">
-                <label className="btn btn-block btn-secondary" id="pc">
+                <label className="btn btn-block btn-secondary active" id="pc">
                     <input type="radio" name="platform" checked={this.state.platform === "pc"} onChange={this.handlePlatformChange.bind(this)} value="pc"/> PC
                 </label>
                 <label className="btn btn-block btn-secondary" id="psn">
