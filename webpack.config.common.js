@@ -8,7 +8,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'public/js/[name].[hash].js',
+        filename: 'static/js/[name].[hash].js',
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json', '.css', '.scss'],
@@ -50,8 +50,8 @@ module.exports = {
             filename: "html/layout.html",
         }),
         new MiniCssExtractPlugin({
-            filename: "public/css/[name].css",
-            chunkFilename: "public/css/[id].css"
+            filename: "static/css/[name].css",
+            chunkFilename: "static/css/[id].css"
         })
     ]
 };
