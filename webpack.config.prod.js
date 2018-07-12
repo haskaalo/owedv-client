@@ -3,12 +3,12 @@ const common = require('./webpack.config.common');
 const {DefinePlugin} = require('webpack');
 const ManifestPlugin = require("webpack-manifest-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const buildconfig = {
     apiUrl: "/",
     isDev: false,
 };
-const webpack = require('webpack');
 
 module.exports = merge(common, {
     mode: 'production',
@@ -17,12 +17,12 @@ module.exports = merge(common, {
     },
     optimization: {
         minimizer: [
-            new webpack.optimize.UglifyJsPlugin({
+            new UglifyJSPlugin({
                 cache: true,
                 parallel: true,
                 sourceMap: false,
             }),
-            new OptimizeCSSAssetsPlugin()
+            new OptimizeCSSAssetsPlugin({})
         ]
     },
     plugins: [
