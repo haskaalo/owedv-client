@@ -61,8 +61,6 @@ class FormPart extends React.Component<IProps, IState> {
         const googletag = window.googletag || {};
         googletag.cmd = googletag.cmd || [];
 
-        googletag.cmd.push(() => { googletag.display("div-gpt-ad-1507329467536-0"); });
-
         googletag.cmd.push(() => {
         const mappingcontentad1 = googletag.sizeMapping().
                 addSize([992, 0], [[728, 90], [336, 280], [300, 250], [1, 1]]).
@@ -81,9 +79,8 @@ class FormPart extends React.Component<IProps, IState> {
         // Submit if latest player exist or is in /v/:...
         if (this.state.btag !== "" && this.state.btag !== undefined) {
             // Add active class to button
-            const el = document.querySelector(`label#${this.state.platform}`);
-            el.classList.add("active");
-            el.children[0].classList.add("checked");
+
+            this.changePlatform(this.state.platform);
             this.handleFormSubmit(null);
         }
     }
@@ -148,17 +145,23 @@ class FormPart extends React.Component<IProps, IState> {
     }
 
     private handlePlatformChange(event: React.ChangeEvent<HTMLInputElement>) {
+        this.changePlatform(event.target.value);
+    }
+
+    private changePlatform(toPlatform: string) {
         // Remove old active element
         let el = document.querySelector("label.active");
-        el.classList.remove("active");
-        el.children[0].classList.remove("checked");
+        if (el !== null) {
+            el.classList.remove("active");
+            el.children[0].classList.remove("checked");
+        }
 
         // Add active class to clicked
-        el = document.querySelector(`label#${event.target.value}`);
+        el = document.querySelector(`label#${toPlatform}`);
         el.classList.add("active");
         el.children[0].classList.add("checked");
 
-        this.setState({platform: el.id});
+        this.setState({ platform: toPlatform });
     }
 }
 
