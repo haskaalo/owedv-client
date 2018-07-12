@@ -84,14 +84,6 @@ class FormPart extends React.Component<IProps, IState> {
                     <input type="radio" name="platform" checked={this.state.platform === "xbox"} onChange={() => this.handlePlatformChange("xbox")} value="xbox"/> Xbox
                 </label>
             </div>
-
-            <div id="div-gpt-ad-1507329467536-0" className="ad">
-                <script>
-                    if (window.googletag && googletag.pubadsReady) {
-                        googletag.cmd.push(() => { googletag.display("div-gpt-ad-1507329467536-0"); })
-                    };
-                </script>
-            </div>
         </form>;
     }
 
