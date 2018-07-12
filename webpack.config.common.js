@@ -51,8 +51,8 @@ module.exports = {
             filename: "html/layout.html",
         }),
         new MiniCssExtractPlugin({
-            filename: "static/css/[name].css",
-            chunkFilename: "static/css/[id].css"
+            filename: "static/css/[name].[hash].css",
+            chunkFilename: "static/css/[id].[chunkhash].css"
         }),
         new CopyWebpackPlugin([
             { from: 'src/assets/images/E_32x32.png', to: 'static/img/E_32x32.png' },
