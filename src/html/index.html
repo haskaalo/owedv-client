@@ -2,6 +2,7 @@
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="/static/img/E_32x32.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="tags" content="blizzard, overwatch, overwatch endorsements, Endorsement viewer, Endorsements, Endorsement">
@@ -12,12 +13,41 @@
     <meta property="twitter:title" content="{{.Header.Title}}" />
     <meta name="og:image" content="{{ .Header.Image }}" />
     <meta name="og:type" content="website" />
-    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        var slot1 = undefined, slot2 = undefined;
+    
+        googletag.cmd.push(function () {
+            var mappingcontentad1 = googletag.sizeMapping().
+                addSize([992, 0], [[728, 90], [336, 280], [300, 250], [1, 1]]).
+                addSize([768, 0], [[728, 90], [336, 280], [300, 250], [1, 1]]).
+                addSize([320, 0], [[320, 50], [320, 100], [320, 200], [300, 250], [1, 1]]).
+                addSize([0, 0], [[300, 250], [1, 1]]).
+                build();
+    
+            slot1 = googletag.defineSlot('/27606634/bd-ad', [[728, 90], [320, 50]], 'div-gpt-ad-1507329467536-0').defineSizeMapping(mappingcontentad1).addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+    
+            setInterval(function () { googletag.pubads().refresh([slot1]); }, 60000);
+        });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-86267615-3"></script>
     <title>{{ .Header.Title }}</title>
 </head>
 <body>
     <div id="root-app">
         {{ yield }}
     </div>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-86267615-3');
+    </script>
 </body>
 </html>

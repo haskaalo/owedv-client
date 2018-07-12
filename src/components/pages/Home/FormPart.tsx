@@ -57,27 +57,6 @@ class FormPart extends React.Component<IProps, IState> {
     }
 
     componentDidMount() {
-        // Add ads
-        const googletag = window.googletag || {};
-        googletag.cmd = googletag.cmd || [];
-
-        googletag.cmd.push(() => {
-        const mappingcontentad1 = googletag.sizeMapping().
-                addSize([992, 0], [[728, 90], [336, 280], [300, 250], [1, 1]]).
-                addSize([768, 0], [[728, 90], [336, 280], [300, 250], [1, 1]]).
-                addSize([320, 0], [[320, 50], [320, 100], [320, 200], [300, 250], [1, 1]]).
-                addSize([0, 0], [[300, 250], [1, 1]]).
-                build();
-
-        const slot1 = googletag.defineSlot("/27606634/bd-ad", [[728, 90], [320, 50]], "div-gpt-ad-1507329467536-0").defineSizeMapping(mappingcontentad1).addService(googletag.pubads());
-        googletag.pubads().enableSingleRequest();
-        googletag.enableServices();
-
-        setInterval(() => { googletag.pubads().refresh([slot1]); }, 60000);
-        });
-
-        googletag.cmd.push(() => { googletag.display("div-gpt-ad-1507329467536-0"); });
-
         // Submit if latest player exist or is in /v/:...
         if (this.state.btag !== "" && this.state.btag !== undefined) {
             // Add active class to button
@@ -105,7 +84,10 @@ class FormPart extends React.Component<IProps, IState> {
                     <input type="radio" name="platform" checked={this.state.platform === "xbox"} onChange={() => this.handlePlatformChange("xbox")} value="xbox"/> Xbox
                 </label>
             </div>
-            <div id="div-gpt-ad-1507329467536-0" className="ad col-lg-1 super-center"></div>
+
+            <div id="div-gpt-ad-1507329467536-0" className="ad col-lg-1 super-center">
+                <script>googletag.cmd.push(() => { googletag.display("div-gpt-ad-1507329467536-0") });</script>
+            </div>
         </form>;
     }
 

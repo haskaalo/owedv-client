@@ -6,3 +6,5 @@ declare const BUILDCONFIG: {
 declare interface Window {
     googletag: any; 
 }
+
+declare const googletag: any;
