@@ -22,7 +22,7 @@ module.exports = merge(common, {
         }
     },
     output: {
-        publicPath: "http://localhost:8080/",
+        publicPath: "/",
     },
     module: {
         rules: [
