@@ -76,11 +76,12 @@ class FormPart extends React.Component<IProps, IState> {
         setInterval(() => { googletag.pubads().refresh([slot1]); }, 60000);
         });
 
+        googletag.cmd.push(() => { googletag.display("div-gpt-ad-1507329467536-0"); });
+
         // Submit if latest player exist or is in /v/:...
         if (this.state.btag !== "" && this.state.btag !== undefined) {
             // Add active class to button
-
-            this.changePlatform(this.state.platform);
+            this.handlePlatformChange(this.state.platform);
             this.handleFormSubmit(null);
         }
     }
@@ -95,13 +96,13 @@ class FormPart extends React.Component<IProps, IState> {
             </div>
             <div className="form-group btn-group btn-group-toggle platform-radio">
                 <label className="btn btn-block btn-secondary active" id="pc">
-                    <input type="radio" name="platform" checked={this.state.platform === "pc"} onChange={this.handlePlatformChange.bind(this)} value="pc"/> PC
+                    <input type="radio" name="platform" checked={this.state.platform === "pc"} onChange={() => this.handlePlatformChange("pc")} value="pc"/> PC
                 </label>
                 <label className="btn btn-block btn-secondary" id="psn">
-                    <input type="radio" name="platform" checked={this.state.platform === "psn"} onChange={this.handlePlatformChange.bind(this)} value="psn"/> PSN
+                    <input type="radio" name="platform" checked={this.state.platform === "psn"} onChange={() => this.handlePlatformChange("psn")} value="psn"/> PSN
                 </label>
                 <label className="btn btn-block btn-secondary" id="xbox">
-                    <input type="radio" name="platform" checked={this.state.platform === "xbox"} onChange={this.handlePlatformChange.bind(this)} value="xbox"/> Xbox
+                    <input type="radio" name="platform" checked={this.state.platform === "xbox"} onChange={() => this.handlePlatformChange("xbox")} value="xbox"/> Xbox
                 </label>
             </div>
             <div id="div-gpt-ad-1507329467536-0" className="ad col-lg-1 super-center"></div>
@@ -144,24 +145,18 @@ class FormPart extends React.Component<IProps, IState> {
         this.setState({btag: event.target.value});
     }
 
-    private handlePlatformChange(event: React.ChangeEvent<HTMLInputElement>) {
-        this.changePlatform(event.target.value);
-    }
-
-    private changePlatform(toPlatform: string) {
+    private handlePlatformChange(platform: string) {
         // Remove old active element
         let el = document.querySelector("label.active");
-        if (el !== null) {
-            el.classList.remove("active");
-            el.children[0].classList.remove("checked");
-        }
+        el.classList.remove("active");
+        el.children[0].classList.remove("checked");
 
         // Add active class to clicked
-        el = document.querySelector(`label#${toPlatform}`);
+        el = document.querySelector(`label#${platform}`);
         el.classList.add("active");
         el.children[0].classList.add("checked");
 
-        this.setState({ platform: toPlatform });
+        this.setState({platform});
     }
 }
 
