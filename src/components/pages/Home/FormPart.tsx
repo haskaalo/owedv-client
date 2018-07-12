@@ -85,8 +85,12 @@ class FormPart extends React.Component<IProps, IState> {
                 </label>
             </div>
 
-            <div id="div-gpt-ad-1507329467536-0" className="ad col-lg-1 super-center">
-                <script>googletag.cmd.push(() => { googletag.display("div-gpt-ad-1507329467536-0") });</script>
+            <div id="div-gpt-ad-1507329467536-0" className="ad">
+                <script>
+                    if (window.googletag && googletag.pubadsReady) {
+                        googletag.cmd.push(() => { googletag.display("div-gpt-ad-1507329467536-0"); })
+                    };
+                </script>
             </div>
         </form>;
     }
