@@ -40,7 +40,7 @@ class FormPart extends React.Component<IProps, IState> {
         if (item !== null && window.location.pathname === "/") {
             const lastPlayer: ILastPlayer = JSON.parse(item);
             this.state = {
-                btag: lastPlayer.battletag.replace("-", "#"),
+                btag: decodeURIComponent(lastPlayer.battletag.replace("-", "#")),
                 platform: lastPlayer.platform,
                 disableInput: false,
             };
@@ -49,7 +49,7 @@ class FormPart extends React.Component<IProps, IState> {
 
         if (this.props.match !== undefined && window.location.pathname !== "/") {
             this.state = {
-                btag: this.props.match.params.battletag.replace("-", "#"),
+                btag: decodeURIComponent(this.props.match.params.battletag.replace("-", "#")),
                 platform: this.props.match.params.platform,
                 disableInput: false,
             };
