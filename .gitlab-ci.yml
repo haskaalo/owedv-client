@@ -8,6 +8,8 @@ before_script:
 
 build:
   stage: build
+  variables:
+    NODE_ENV: production
   script:
     - yarn run build:webpack
   artifacts:
