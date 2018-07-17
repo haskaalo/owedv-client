@@ -30,7 +30,6 @@ class EndorsementViewer extends Component<IProps> {
                             <div className="w-100"></div>
                             <li className="breadcrumb-item active">{this.props.profile.player.platform.toUpperCase()}</li>
                             <li className="breadcrumb-item active">LVL {this.props.profile.level}</li>
-                            <li className="breadcrumb-item active">Total {this.props.profile.total}</li>
                         </ol>
                     </h4>
                     <ul className="list-group">
