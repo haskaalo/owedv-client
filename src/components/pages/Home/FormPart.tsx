@@ -43,6 +43,7 @@ class FormPart extends Component<IProps, IState> {
             const lastPlayer: ILastPlayer = JSON.parse(item);
 
             if (!this.availablePlatforms.indexOf(lastPlayer.platform)) {
+                localStorage.removeItem("lastPlayer");
                 window.location.href = "/";
                 return;
             }
