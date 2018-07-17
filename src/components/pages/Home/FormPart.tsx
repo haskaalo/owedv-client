@@ -20,13 +20,9 @@ export interface IProps {
     removeError: () => RemoveErrorAction;
     error: IError;
 
-    // React Router Props
-    match?: {
-        params: {
-            battletag: string;
-            platform: string;
-        },
-    };
+    // Preact Router Props
+    battletag?: string;
+    platform?: string;
 }
 
 class FormPart extends Component<IProps, IState> {
@@ -42,7 +38,7 @@ class FormPart extends Component<IProps, IState> {
         if (item !== null && window.location.pathname === "/") {
             const lastPlayer: ILastPlayer = JSON.parse(item);
 
-            if (!this.availablePlatforms.indexOf(lastPlayer.platform)) {
+            if (this.availablePlatforms.indexOf(lastPlayer.platform) === -1) {
                 localStorage.removeItem("lastPlayer");
                 window.location.href = "/";
                 return;
@@ -56,15 +52,15 @@ class FormPart extends Component<IProps, IState> {
             return;
         }
 
-        if (this.props.match !== undefined && window.location.pathname !== "/") {
-            if (!this.availablePlatforms.indexOf(this.props.match.params.platform)) {
+        if (window.location.pathname !== "/") {
+            if (this.availablePlatforms.indexOf(this.props.platform) === -1) {
                 window.location.href = "/";
                 return;
             }
 
             this.state = {
-                btag: decodeURIComponent(this.props.match.params.battletag.replace("-", "#")),
-                platform: this.props.match.params.platform,
+                btag: decodeURIComponent(this.props.battletag.replace("-", "#")),
+                platform: this.props.platform,
                 disableInput: false,
             };
         }

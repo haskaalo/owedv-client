@@ -10,7 +10,7 @@ class App extends Component {
         return <div>
                 <Router>
                     <Home path="/" />
-                    <Home path="/v/:platform/:battletag?" />
+                    <Home path="/v/:platform/:battletag" />
                 </Router>
             <Footer/>
         </div>;
