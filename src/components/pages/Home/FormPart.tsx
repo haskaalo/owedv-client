@@ -30,6 +30,8 @@ export interface IProps {
 }
 
 class FormPart extends React.Component<IProps, IState> {
+    private availablePlatforms = ["psn", "xbl", "pc"];
+
     constructor(props: IProps) {
         super(props);
         this.state = {btag: "", platform: "pc", disableInput: false};
@@ -39,6 +41,12 @@ class FormPart extends React.Component<IProps, IState> {
 
         if (item !== null && window.location.pathname === "/") {
             const lastPlayer: ILastPlayer = JSON.parse(item);
+
+            if (!this.availablePlatforms.indexOf(lastPlayer.platform)) {
+                window.location.href = "/";
+                return;
+            }
+
             this.state = {
                 btag: decodeURIComponent(lastPlayer.battletag.replace("-", "#")),
                 platform: lastPlayer.platform,
@@ -48,6 +56,11 @@ class FormPart extends React.Component<IProps, IState> {
         }
 
         if (this.props.match !== undefined && window.location.pathname !== "/") {
+            if (!this.availablePlatforms.indexOf(this.props.match.params.platform)) {
+                window.location.href = "/";
+                return;
+            }
+
             this.state = {
                 btag: decodeURIComponent(this.props.match.params.battletag.replace("-", "#")),
                 platform: this.props.match.params.platform,
@@ -80,8 +93,8 @@ class FormPart extends React.Component<IProps, IState> {
                 <label className="btn btn-block btn-secondary" id="psn">
                     <input type="radio" name="platform" checked={this.state.platform === "psn"} onChange={() => this.handlePlatformChange("psn")} value="psn"/> PSN
                 </label>
-                <label className="btn btn-block btn-secondary" id="xbox">
-                    <input type="radio" name="platform" checked={this.state.platform === "xbox"} onChange={() => this.handlePlatformChange("xbox")} value="xbox"/> Xbox
+                <label className="btn btn-block btn-secondary" id="xbl">
+                    <input type="radio" name="platform" checked={this.state.platform === "xbl"} onChange={() => this.handlePlatformChange("xbox")} value="xbl"/> Xbox
                 </label>
             </div>
         </form>;
