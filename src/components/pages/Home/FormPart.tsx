@@ -1,4 +1,4 @@
-import * as React from "react";
+import { h, Component } from "preact";
 import { Dispatch } from "redux";
 import { ViewProfile, IProfile, ViewProfileAction } from "../../../redux/actions/profile";
 import ILastPlayer from "../../../interfaces/lastplayer";
@@ -6,7 +6,7 @@ import ViewProfileRequest from "../../../request/viewprofile";
 
 import "./formpart.scss";
 import { SetError, IError, SetErrorAction, RemoveErrorAction, RemoveError } from "../../../redux/actions/error";
-import { connect } from "react-redux";
+import { connect } from "preact-redux";
 
 export interface IState {
     btag: string;
@@ -29,7 +29,7 @@ export interface IProps {
     };
 }
 
-class FormPart extends React.Component<IProps, IState> {
+class FormPart extends Component<IProps, IState> {
     private availablePlatforms = ["psn", "xbl", "pc"];
 
     constructor(props: IProps) {
@@ -100,7 +100,7 @@ class FormPart extends React.Component<IProps, IState> {
         </form>;
     }
 
-    private async handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
+    private async handleFormSubmit(event: any) {
         if (event != null) {
             event.preventDefault();
         }
@@ -132,7 +132,7 @@ class FormPart extends React.Component<IProps, IState> {
         this.setState({disableInput: false});
     }
 
-    private handleBtagChange(event: React.ChangeEvent<HTMLInputElement>) {
+    private handleBtagChange(event: any) {
         this.setState({btag: event.target.value});
     }
 
@@ -155,7 +155,7 @@ const mapStateToProps = ({error}: {error: IError}) => {
     return {error};
 };
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch<any>) => {
     return {
         viewProfile: (profile: IProfile) => {
             dispatch(ViewProfile(profile));
@@ -169,4 +169,6 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormPart);
+// Workaround;
+const anyFormPart: any = FormPart;
+export default connect(mapStateToProps, mapDispatchToProps)(anyFormPart);

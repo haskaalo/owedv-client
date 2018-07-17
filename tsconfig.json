@@ -6,6 +6,8 @@
     "moduleResolution": "node",
     "target": "es5",
     "jsx": "react",
+    "jsxFactory": "h",
+    "keyofStringsOnly": true, // for preact-redux
     "lib": [ "es6", "dom" ]
   }
 }

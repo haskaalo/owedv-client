@@ -1,8 +1,6 @@
-import * as React from "react";
-import { render } from "react-dom";
-import {BrowserRouter} from "react-router-dom";
+import { h, render } from "preact";
 import App from "./app";
-import { Provider } from "react-redux";
+import { Provider } from "preact-redux";
 import store from "./redux/store";
 
 render(

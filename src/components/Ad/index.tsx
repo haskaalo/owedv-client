@@ -1,7 +1,7 @@
-import * as React from "react";
+import { h, Component } from "preact";
 import "./ad.scss";
 
-class Ad extends React.Component {
+class Ad extends Component {
     render() {
         return <div className="ad col-lg-10 super-center" id="div-gpt-ad-1507329467536-0">
             <script>

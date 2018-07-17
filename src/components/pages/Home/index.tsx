@@ -1,9 +1,9 @@
-import * as React from "react";
+import {h, Component} from "preact";
 import FormPart from "./FormPart";
 import EndorsementViewer from "./EndorsementViewer";
 import Ad from "../../Ad";
 
-class Home extends React.Component {
+class Home extends Component {
     render() {
         return <div className="container-fluid max-height max-width">
             <div className="row max-height">

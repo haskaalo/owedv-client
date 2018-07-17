@@ -1,13 +1,13 @@
-import * as React from "react";
+import {h, Component} from "preact";
 import { IProfile } from "../../../redux/actions/profile";
-import { connect } from "react-redux";
+import { connect } from "preact-redux";
 import "./endorsementviewer.scss";
 
 export interface IProps {
     profile: IProfile;
 }
 
-class EndorsementViewer extends React.Component<IProps> {
+class EndorsementViewer extends Component<IProps> {
     constructor(props: IProps) {
         super(props);
     }
@@ -57,4 +57,5 @@ const mapStateToProps = ({profile}: {profile: IProfile}) => {
     return {profile};
 };
 
-export default connect(mapStateToProps)(EndorsementViewer);
+const anyEndorsementViewer: any = EndorsementViewer;
+export default connect(mapStateToProps)(anyEndorsementViewer);
