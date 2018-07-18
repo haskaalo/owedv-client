@@ -91,7 +91,7 @@ class FormPart extends Component<IProps, IState> {
                     <input type="radio" name="platform" checked={this.state.platform === "psn"} onChange={() => this.handlePlatformChange("psn")} value="psn"/> PSN
                 </label>
                 <label className="btn btn-block btn-secondary" id="xbl">
-                    <input type="radio" name="platform" checked={this.state.platform === "xbl"} onChange={() => this.handlePlatformChange("xbox")} value="xbl"/> Xbox
+                    <input type="radio" name="platform" checked={this.state.platform === "xbl"} onChange={() => this.handlePlatformChange("xbl")} value="xbl"/> Xbox
                 </label>
             </div>
         </form>;
