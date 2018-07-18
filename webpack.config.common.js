@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -45,14 +46,16 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            inject: true,
             chunks: ["main"],
             template: path.join(__dirname, "src/html/index.html"),
             filename: "html/layout.html",
         }),
+        new ScriptExtHtmlWebpackPlugin({
+            defaultAttribute: 'async'
+        }),
         new MiniCssExtractPlugin({
-            filename: "static/css/[name].[hash].css",
-            chunkFilename: "static/css/[id].[chunkhash].css"
+            filename: "static/css/styles.[hash].css",
+            chunkFilename: "static/css/[id].[chunkhash].css",
         }),
         new CopyWebpackPlugin([
             { from: 'src/assets/images/E_32x32.png', to: 'static/img/E_32x32.png' },
