@@ -32,6 +32,12 @@ class EndorsementViewer extends Component<IProps> {
                             <li className="breadcrumb-item active">LVL {this.props.profile.level}</li>
                         </ol>
                     </h4>
+                    <ul className="list-group mt-0" style={{marginBottom: "1em"}}>
+                        <li className="list-group-item d-flex justify-content-between align-items-center">
+                        SR
+                        <span className="badge badge-default badge-pill" style={{backgroundColor: "#f1941298"}}>{this.props.profile.ranked.sr}</span>
+                        </li>
+                    </ul>
                     <ul className="list-group">
                         <li className="list-group-item d-flex justify-content-between align-items-center">
                         Shotcaller

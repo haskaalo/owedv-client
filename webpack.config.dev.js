@@ -4,7 +4,7 @@ const common = require('./webpack.config.common.js');
 const {HotModuleReplacementPlugin, DefinePlugin} = require('webpack');
 
 const buildconfig = {
-    apiUrl: "http://localhost:1337/",
+    apiUrl: "http://5c2aaeb8b1c87d001421e6af.mockapi.io/",
     isDev: true,
 }
 

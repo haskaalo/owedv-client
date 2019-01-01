@@ -8,6 +8,10 @@ export interface IProfile {
         icon: string;
         platform: string;
     };
+    ranked: {
+        sr: string;
+        icon: string;
+    };
     shotcaller: string;
     teammate: string;
     sportsmanship: string;
