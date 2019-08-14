@@ -8,10 +8,12 @@ export interface IProfile {
         icon: string;
         platform: string;
     };
-    ranked: {
+    role_queue: Array<{
+        role: string;
+        role_icon: string;
         sr: string;
         icon: string;
-    };
+    }>;
     shotcaller: string;
     teammate: string;
     sportsmanship: string;

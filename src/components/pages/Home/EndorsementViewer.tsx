@@ -33,10 +33,12 @@ class EndorsementViewer extends Component<IProps> {
                         </ol>
                     </h4>
                     <ul className="list-group mt-0" style={{marginBottom: "1em"}}>
-                        <li className="list-group-item d-flex justify-content-between align-items-center">
-                        SR
-                        <span className="badge badge-default badge-pill" style={{backgroundColor: "#f1941298"}}>{this.props.profile.ranked.sr}</span>
-                        </li>
+                        {this.props.profile.role_queue.map((queue) => {
+                            return <li className="list-group-item d-flex justify-content-between align-items-center">
+                                {queue.role + " SR"}
+                                <span className="badge badge-default badge-pill" style={{backgroundColor: "#f1941298"}}>{queue.sr}</span>
+                            </li>;
+                        })}
                     </ul>
                     <ul className="list-group">
                         <li className="list-group-item d-flex justify-content-between align-items-center">
